@@ -1,0 +1,627 @@
+
+
+/* The font used for the website - imported from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&display=swap');
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Martel", serif; /*required for imported font to work!*/
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+header.navbar {
+  width: 100vw;
+  left: 0;
+  right: 0;
+}
+
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #fffaf2;
+  color: #222;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+
+/* Navigation Bar */
+
+.navbar {
+  width: 100%;
+  background-color: #ff9cbb;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.nav-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: -100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  position: relative; 
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 4px 0;
+}
+/* Adds the underline for the links in the navbar */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: rgb(255, 255, 255); /* Colour of underline bar for the nav links */
+  transition: width 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+/*removes bullets in default nav list*/
+.nav-links {
+  list-style: none;       /* this line specifically removes the default bullets */
+  display: flex;          
+  gap: 30px;             
+  padding: 0;             
+  margin: 0;             
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+}
+
+
+/* Hero Section aka the homepage decor! (homepage images ect) */
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+}
+
+
+/* Homepage image + text layout */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Image on the left */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Makes Homepage image interactive - lifts and slightly rotates*/
+
+.hero-image img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 550px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.8s ease, box-shadow 0.8s ease; 
+  box-shadow: 0 4px 12px transparent(0, 0, 0, 0.1);
+}
+
+.hero-image img:hover {
+  transform: scale(1.03) rotate(-2deg); 
+  box-shadow: 0 12px 30px transparent(0, 0, 0, 0.2); 
+}
+
+/*adding the secondary overlay image to the homescreen*/
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.main-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  
+}
+
+/*changes the placement of the secondary homepage overlay image*/
+.overlay-image {
+  position: absolute;
+  bottom: -200px;
+  right: -90px; /*problem child*/
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px transparent(0,0,0,0.15);
+  z-index: 10;
+}
+
+
+/* Text on the right of the homepage */
+.hero-text {
+  flex: 1;
+  text-align: left;
+  position: relative;
+  top: -40px;
+
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* responsible for social media icon placement on home page! */
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  top: 60px;
+}
+
+.hero-text .social-icons a {
+  color: #ff5ea4;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-text .social-icons a:hover {
+  transform: scale(1.2);
+  color: #222;
+}
+
+/* grid design on background*/
+body {
+  background-color: #fffaf2;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+
+/* Responsive for mobile */
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-image {
+    order: -1; /* allows the images to be positioned above the homepage intro text!*/
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image-wrapper {
+    max-width: 200px;  /* makes the images slightly smaller for mobile viewing (they looked wonky without me adding this!*/
+    position: relative;
+  }
+
+  .main-image {
+  position: relative;
+  top: -60px;     
+  left: 0px;    
+  width: 100%;
+  height: auto;
+}
+
+.overlay-image {
+  position: absolute;
+  bottom: -100px;  
+  right: 0px;
+  left: 60px;   
+  width: 80px;
+  top: 40px;
+}
+
+
+  .main-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay-image {
+    width: 60px;
+    bottom: -10px;
+    right: -10px;
+  }
+
+  .hero-text {
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  /* this adds space between the images and text in mobile viewing*/ 
+  .hero-text {
+  margin-top: 20px; /* This value is adjusted to move it vertically*/
+ 
+}
+
+}
+
+/* more mobile styles to allow for the nav links to be hidden in mobile view,
+but a hamburger menu is visible instead! mobile only*/
+
+/* Default nav setup */
+.menu-toggle-input {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile-only styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #ff7cb7;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 999;
+  }
+
+  .menu-toggle-input:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+    margin-left: auto;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+  }
+
+  .logo {
+    position: static;
+    margin-right: auto;
+  }
+}
+
+
+/* PROJECT HTML PAGE CSS */
+
+
+.app-codeview {
+  width: 50%;
+  height: auto;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  transform: translateY(50px); 
+  border-radius: 12px;
+  box-shadow: 0 6px 16px #ff9cbb (0, 0, 0, 0.1);
+}
+
+
+
+.app-preview {
+  width: 200px;
+  height: auto;
+  margin-left: 40px;
+  transform: translateY(20px); 
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive addition for mobile */
+@media (max-width: 768px) {
+  .project-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-details {
+    text-align: center;
+  }
+
+  .project-img {
+    width: 90%;
+  }
+}
+
+
+/* contact page css! */
+
+.contact-container {
+  text-align: center;
+  background: transparent;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h1 {
+  margin-bottom: 20px;
+  color: #ff7cb7;
+}
+
+/* adds a space between the <p> and the email button on the contact me page! */
+.contact-container p {
+  margin-bottom: 40px;
+}
+
+/* the pink email button css on the contact me page */
+.email-button {
+  display: inline-block;
+  background-color: #ff7cb7;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+/* changes the colour of the button when you hover it (to add some pizzaz and some more interaction with the viewer) */
+.email-button:hover {
+  background-color: #e660a0;
+}
+
+/* projects page more styling css */
+
+img.app-codeview {
+  width: 650px;
+  height: auto;
+  
+}
+
+img.app-preview {
+  width: 250px;
+  height: auto;
+  
+}
+
+.hero-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.app-codeview {
+  position: relative;
+  z-index: 1;
+  width: 240px;
+  height: auto;
+}
+
+.app-preview {
+  position: absolute;
+  top: 200px;    
+  left: -70px;    
+  width: 180px;
+  height: auto;
+  z-index: 2;
+  box-shadow: 0 8px 20px #ff7cb7(255, 105, 180, 0.4);
+  border-radius: 12px;
+  transform: rotate(-4deg);
+  border: 20px #ff7cb7;
+  
+}
+
+/* mobile layout css for the projects page*/
+
+.app-codeview,
+.app-preview {
+  border: 2px solid transparent; 
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-image {
+    order: -1; /* allows the images to be positioned above the homepage intro text!*/
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image-wrapper {
+    max-width: 300px;  /* makes the images slightly smaller for mobile viewing (they looked wonky without me adding this!*/
+    position: relative;
+  }
+
+  .app-codeview {
+  position: relative;
+  top: -40px;     
+  left: 0px;    
+  width: 350px;
+  height: auto;
+  border: 2px solid deeppink;
+}
+
+.app-preview {
+  position: absolute;
+  bottom: -100px;  
+  right: 0px;
+  left: -50px;   
+  width: 120px !important;
+  top: 30px;
+  border: 2px solid deeppink;
+}
+
+@media (max-width: 768px) {
+  body.projects-page .app-codeview,
+  body.projects-page .app-preview {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+  .app-codeview {
+    width: 300%;
+    height: auto;
+  }
+
+  .app-preview {
+    width: 60px;
+    bottom: -10px;
+    right: -10px;
+  }
+
+  .hero-text {
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  /* this adds space between the images and text in mobile viewing*/ 
+  .hero-text {
+  margin-top: 0px; /* This value is adjusted to move it vertically*/
+ 
+ 
+}
+/* this adds a small space between <h2> and <p> on the projects page, for mobile viewing*/
+@media (max-width: 768px) {
+  .projects-page .hero-text h2 {
+    margin-bottom: 12px; /* specifially this value can be adjusted for more space/ less space */
+  }
+  
+}
+@media (max-width: 768px) {
+  .projects-page .hero-container {
+    padding-bottom: 0px;  
+    margin-bottom: 20px;   
+  }
+}
+
+
+}
+
+
+/* about me page css - so I can re-size the images better/ with more control!*/
+
+.about-page .tobi-image {
+  position: absolute;       
+  width: 250px;             
+  height: auto;
+  top: 380px;         
+  left: 280px;      
+  z-index: 5;
+  border-radius: 8px;
+  transform: rotate(6deg); /*adds the tilt to the image!*/
+}
+/*re-adjusts tobi's picture specifically in mobile view as well!*/
+@media (max-width: 768px) {
+  .about-page .tobi-image {
+    width: 160px;           
+    top: 220px;              
+    left: 150px;           
+    transform: rotate(5deg); 
+  }
+  
+  .about-page .hero-image-wrapper {
+    position: relative;     /* Ensures Tobi is positioned correctly - I struggled with the positioning of this image specifically for a while*/
+  }
+}
+
+/*adds more spacing between the <p> - this helps it look better, and makes the about page look more than just a blob of letters!*/
+
+.hero-text p {
+  margin-bottom: 20px; 
+  line-height: 1.6;
+}
+
+/* This allows the <strong> text on the about me page to look more bold!! helps everything stand out*/
+
+.hero-text strong {
+  color: #ff7cb7;
+  font-weight: 600;
+}
+
+/* adds colour to the clickable text on the homepage, to encourage viewers to check out my projects!*/
+
+.highlight-link {
+    color: #ff7cb7;
+  
+}
+
+/* added to allow me to specifically adjust the text placement on my about me page!*/
+.about-page .hero-text {
+  margin-top: 150px; 
+  text-align: left;
+  padding: 0 20px;
+}
